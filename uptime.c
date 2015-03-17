@@ -44,7 +44,7 @@ int main() {
     /* not required because this (should) equal 0 anyway */
 
     /* print out the results */
-    printf("%d day(s), %d hour(s), %d minute(s)\n", days, hours, minutes);
+    printf("%d %s, %d %s, %d %s\n", days, daysStr, hours, hoursStr, minutes, minutesStr);
   }
     
   fclose(fp);
