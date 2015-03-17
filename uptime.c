@@ -16,5 +16,5 @@ int main() {
     fprintf(stderr, "Could not open \"/proc/uptime\"\n");
     return 1;
   }
-
+}
 
