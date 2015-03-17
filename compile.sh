@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # Compile script for better-uptime
 OUTPUT_NAME="better-uptime";
