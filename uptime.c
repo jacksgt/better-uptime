@@ -35,11 +35,20 @@ int main() {
     /* begin arithmetic operations */
     days = seconds/86000;
     seconds %= 86400;
+    if(days==1) {
+      daysStr[3] = '\0';
+    }
 
     hours = seconds/3600;
     seconds %= 3600;
+    if(hours==1) {
+      hoursStr[4] = '\0';
+    }
 
     minutes = seconds/60;
+    if(minutes==1) {
+      minutesStr[6] = '\0';
+    }
     /* seconds %= 60; */
     /* not required because this (should) equal 0 anyway */
 
