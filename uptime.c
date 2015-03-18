@@ -3,7 +3,21 @@
 
 FILE *fp;
 
-int main() {    
+int main(int argc, char **argv) {
+  /* check if there are any arguments */
+  if(argc > 1) {
+    /* check for call for help */
+    if(strcmp(argv[1],"-h")==0 || strcmp(argv[1], "--help")==0) {
+      printHelp();
+      return 0;
+    }
+  }
+  printUptime();
+
+  return 0;
+}
+
+int printUptime() {    
   char line [128];
   char * token;
   int seconds;
@@ -20,7 +34,7 @@ int main() {
     fprintf(stderr, "Could not open \"/proc/uptime\"\n");
     return 1;
   }
-    while(fgets(line, 128, fp) != NULL) {
+  while(fgets(line, 128, fp) != NULL) {
 
     /* split the line at the space */
     token = strtok(line, " ");
@@ -58,6 +72,10 @@ int main() {
     
   fclose(fp);
   return 0;
-
 }
+
+int printHelp() {
+  printf("better-uptime: help text\n");
+}
+
 
