@@ -76,6 +76,7 @@ int printUptime() {
 
 int printHelp() {
   printf("better-uptime: help text\n");
+  // read from help-text file
 }
 
 
