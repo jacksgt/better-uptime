@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 FILE *fp;
 
@@ -13,13 +14,13 @@ int main(int argc, char **argv) {
     }
   }
   printUptime();
-  // Hello World!
   return 0;
 }
 
 int printUptime() {    
-  char line [128];
+  char line[128];
   char * token;
+  int fileSize;
   int seconds;
   char daysStr[] = "days";
   char hoursStr[] = "hours";
@@ -27,13 +28,14 @@ int printUptime() {
 
   int days, hours, minutes;
 
-  /* read content of /proc/uptime (provided by the kernel */
+  /* read content of /proc/uptime (provided by the kernel) */
   fp = fopen ("/proc/uptime", "r");
     
   if(fp == NULL) {
     fprintf(stderr, "Could not open \"/proc/uptime\"\n");
     return 1;
   }
+
   while(fgets(line, 128, fp) != NULL) {
 
     /* split the line at the space */
@@ -69,7 +71,7 @@ int printUptime() {
     /* print out the results */
     printf("%d %s, %d %s, %d %s\n", days, daysStr, hours, hoursStr, minutes, minutesStr);
   }
-    
+
   fclose(fp);
   return 0;
 }
